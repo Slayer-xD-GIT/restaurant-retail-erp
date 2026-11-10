@@ -1,0 +1,12 @@
+{
+  "name": "restaurant-retail-erp",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm --workspace @erp/web run dev",
+    "build": "npm --workspace @erp/web run build",
+    "test": "npm --workspace @erp/web run test",
+    "preview": "npm --workspace @erp/web run preview"
+  }
+}

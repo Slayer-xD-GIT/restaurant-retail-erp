@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: erp
+      POSTGRES_USER: erp
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-erp-local-only}
+    volumes: [erp_pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U erp"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  api:
+    build: ../apps/api
+    environment:
+      DATABASE_URL: postgresql+asyncpg://erp:${POSTGRES_PASSWORD:-erp-local-only}@db:5432/erp
+    depends_on:
+      db: { condition: service_healthy }
+    ports: ["8000:8000"]
+  web:
+    build: ../apps/web
+    depends_on: [api]
+    ports: ["4173:4173"]
+volumes:
+  erp_pgdata:

@@ -1,0 +1,10 @@
+{
+  "name":"Ranna Restaurant & Retail ERP",
+  "short_name":"Ranna ERP",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#f4f6f2",
+  "theme_color":"#0b5d4e",
+  "description":"Offline-first restaurant and retail operations",
+  "icons":[]
+}
