@@ -17,4 +17,20 @@ export async function syncQueue(send:(entry:QueueEntry)=>Promise<void>){
   return results
 }
 
-export const registerOfflineWorker=async()=>{if('serviceWorker' in navigator)return navigator.serviceWorker.register('/sw.js');return null}
+export const registerOfflineWorker=async()=>{
+  if(!('serviceWorker' in navigator))return null
+  if(import.meta.env.DEV){
+    const registrations=await navigator.serviceWorker.getRegistrations()
+    await Promise.all(registrations.map(registration=>registration.unregister()))
+    if('caches' in window){
+      const keys=await caches.keys()
+      await Promise.all(keys.filter(key=>key.startsWith('ranna-erp-')).map(key=>caches.delete(key)))
+    }
+    if(navigator.serviceWorker.controller&&!sessionStorage.getItem('ranna-sw-reset')){
+      sessionStorage.setItem('ranna-sw-reset','1')
+      location.reload()
+    }
+    return null
+  }
+  return navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`)
+}
