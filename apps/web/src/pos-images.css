@@ -1,0 +1,40 @@
+.posx-product > div.posx-media {
+  height: 104px;
+}
+
+.posx-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.posx-product:hover .posx-media img {
+  transform: scale(1.045);
+}
+
+.posx-product em {
+  z-index: 1;
+  padding: 4px 7px;
+  background: #fffffff0;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.posx-food {
+  position: relative;
+  overflow: hidden;
+}
+
+.posx-food img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.posx-food span {
+  font-size: 15px;
+}

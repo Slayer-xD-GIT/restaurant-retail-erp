@@ -3,7 +3,7 @@ import { BDT, inclusiveTax, taka } from './engine'
 export type Product = {
   id: string; name: string; category: string; price: number; taxRate: number;
   sdRate: number; cost: number; stock: number; target: number; sold: number;
-  tint: string; emoji: string; ingredients: string[];
+  tint: string; emoji: string; image: string; ingredients: string[];
 }
 
 export type CartLine = Product & { quantity: number }
@@ -29,14 +29,14 @@ export type StockBatch = {
 }
 
 export const products: Product[] = [
-  { id:'P-101', name:'Classic Chicken Burger', category:'Burgers', price:300, taxRate:.15, sdRate:.05, cost:96, stock:64, target:706, sold:412, tint:'#ffd8a8', emoji:'🍔', ingredients:['Chicken patty · 1 pc','Brioche bun · 1 pc','Burger sauce · 28 g'] },
-  { id:'P-102', name:'Smoky Beef Burger', category:'Burgers', price:420, taxRate:.15, sdRate:.05, cost:146, stock:41, target:471, sold:308, tint:'#e9c6aa', emoji:'🥩', ingredients:['Beef patty · 1 pc','Brioche bun · 1 pc','Cheese slice · 1 pc'] },
-  { id:'P-103', name:'Crispy Chicken Rice', category:'Rice bowls', price:360, taxRate:.15, sdRate:0, cost:118, stock:87, target:420, sold:264, tint:'#ffe69c', emoji:'🍛', ingredients:['Rice · 220 g','Chicken fillet · 140 g','House gravy · 60 g'] },
-  { id:'P-104', name:'Firecracker Wings', category:'Sides', price:280, taxRate:.15, sdRate:0, cost:91, stock:29, target:360, sold:197, tint:'#ffcab0', emoji:'🍗', ingredients:['Chicken wings · 6 pc','Firecracker glaze · 45 g'] },
-  { id:'P-105', name:'Loaded Fries', category:'Sides', price:240, taxRate:.15, sdRate:0, cost:68, stock:52, target:330, sold:226, tint:'#fff0ad', emoji:'🍟', ingredients:['Potato fries · 180 g','Cheese sauce · 50 g'] },
-  { id:'P-106', name:'Mango Mint Cooler', category:'Drinks', price:190, taxRate:.15, sdRate:0, cost:42, stock:73, target:510, sold:344, tint:'#c7f0c2', emoji:'🥤', ingredients:['Mango pulp · 90 ml','Mint syrup · 25 ml','Soda · 180 ml'] },
-  { id:'P-107', name:'Chocolate Lava Cake', category:'Desserts', price:260, taxRate:.15, sdRate:0, cost:79, stock:18, target:240, sold:164, tint:'#d7c0b0', emoji:'🍰', ingredients:['Lava cake · 1 pc','Vanilla cream · 30 g'] },
-  { id:'P-108', name:'Family Feast Combo', category:'Combos', price:1290, taxRate:.15, sdRate:.05, cost:438, stock:16, target:120, sold:74, tint:'#dbcdf5', emoji:'🍽️', ingredients:['Chicken burger · 2 pc','Loaded fries · 2 pc','Cooler · 4 pc'] },
+  { id:'P-101', name:'Classic Chicken Burger', category:'Burgers', price:300, taxRate:.15, sdRate:.05, cost:96, stock:64, target:706, sold:412, tint:'#ffd8a8', emoji:'🍔', image:'/images/menu/classic-chicken-burger.jpg', ingredients:['Chicken patty · 1 pc','Brioche bun · 1 pc','Burger sauce · 28 g'] },
+  { id:'P-102', name:'Smoky Beef Burger', category:'Burgers', price:420, taxRate:.15, sdRate:.05, cost:146, stock:41, target:471, sold:308, tint:'#e9c6aa', emoji:'🥩', image:'/images/menu/smoky-beef-burger.jpg', ingredients:['Beef patty · 1 pc','Brioche bun · 1 pc','Cheese slice · 1 pc'] },
+  { id:'P-103', name:'Crispy Chicken Rice', category:'Rice bowls', price:360, taxRate:.15, sdRate:0, cost:118, stock:87, target:420, sold:264, tint:'#ffe69c', emoji:'🍛', image:'/images/menu/crispy-chicken-rice.jpg', ingredients:['Rice · 220 g','Chicken fillet · 140 g','House gravy · 60 g'] },
+  { id:'P-104', name:'Firecracker Wings', category:'Sides', price:280, taxRate:.15, sdRate:0, cost:91, stock:29, target:360, sold:197, tint:'#ffcab0', emoji:'🍗', image:'/images/menu/firecracker-wings.jpg', ingredients:['Chicken wings · 6 pc','Firecracker glaze · 45 g'] },
+  { id:'P-105', name:'Loaded Fries', category:'Sides', price:240, taxRate:.15, sdRate:0, cost:68, stock:52, target:330, sold:226, tint:'#fff0ad', emoji:'🍟', image:'/images/menu/loaded-fries.jpg', ingredients:['Potato fries · 180 g','Cheese sauce · 50 g'] },
+  { id:'P-106', name:'Mango Mint Cooler', category:'Drinks', price:190, taxRate:.15, sdRate:0, cost:42, stock:73, target:510, sold:344, tint:'#c7f0c2', emoji:'🥤', image:'/images/menu/mango-mint-cooler.jpg', ingredients:['Mango pulp · 90 ml','Mint syrup · 25 ml','Soda · 180 ml'] },
+  { id:'P-107', name:'Chocolate Lava Cake', category:'Desserts', price:260, taxRate:.15, sdRate:0, cost:79, stock:18, target:240, sold:164, tint:'#d7c0b0', emoji:'🍰', image:'/images/menu/chocolate-lava-cake.jpg', ingredients:['Lava cake · 1 pc','Vanilla cream · 30 g'] },
+  { id:'P-108', name:'Family Feast Combo', category:'Combos', price:1290, taxRate:.15, sdRate:.05, cost:438, stock:16, target:120, sold:74, tint:'#dbcdf5', emoji:'🍽️', image:'/images/menu/family-feast-combo.jpg', ingredients:['Chicken burger · 2 pc','Loaded fries · 2 pc','Cooler · 4 pc'] },
 ]
 
 export const approvalsSeed: Approval[] = [
